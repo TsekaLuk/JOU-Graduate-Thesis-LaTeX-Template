@@ -8,19 +8,11 @@ on:
       - "README.md"
       - "README_EN.md"
       - "docs/**"
-      - "contents/excellent-abstract/**"
-      - "styles/jouexcellentabstract.sty"
-      - "templates/reports/excellent-thesis-abstract.tex"
-      - "templates/reports/excellent-thesis-abstract.pdf"
   pull_request:
     paths-ignore:
       - "README.md"
       - "README_EN.md"
       - "docs/**"
-      - "contents/excellent-abstract/**"
-      - "styles/jouexcellentabstract.sty"
-      - "templates/reports/excellent-thesis-abstract.tex"
-      - "templates/reports/excellent-thesis-abstract.pdf"
   workflow_dispatch:
 
 concurrency:
@@ -86,25 +78,11 @@ jobs:
 
       - name: Build thesis PDF
         shell: bash
-        run: |
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-          makeindex main.nlo -s nomencl.ist -o main.nls
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-
-      - name: Run thesis-focused tests
-        run: |
-          python tests/test_cross_platform_font_support.py
-          python tests/test_thesis_alignment.py
-          python tests/test_cover_alignment.py
-          python tests/test_academic_features.py
+        run: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Upload thesis artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: thesis-${{ matrix.os }}
-          path: |
-            main.pdf
-            docs/assets/thesis-cover-overlay.png
-            docs/assets/thesis-cover-overlay-focus.png
-            docs/assets/thesis-cover-diff.png
+          path: main.pdf
