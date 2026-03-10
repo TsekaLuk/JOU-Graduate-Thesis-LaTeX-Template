@@ -1,17 +1,38 @@
-% 江苏海洋大学研究生毕业论文 LaTeX 模板
-% 模板尚在建设中，排版规范待定
+\documentclass{styles/jougraduate}
 
-\documentclass[a4paper,12pt]{article}
-\usepackage{fontspec}
-\usepackage{xeCJK}
+\input{contents/shared/metadata}
+\JOUApplySharedMetadata
 
 \begin{document}
 
-\title{江苏海洋大学研究生毕业论文\\（模板建设中）}
-\author{}
-\date{}
-\maketitle
+\input{contents/frontmatter/cover}
+\input{contents/frontmatter/authorization}
+\input{contents/frontmatter/inner-cover}
+\input{contents/frontmatter/review}
+\input{contents/frontmatter/acknowledgements}
 
-本模板正在建设中，敬请期待。
+\frontmatter
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\pagestyle{frontmatterstyle}
+
+\input{contents/frontmatter/cn-abstract}
+\input{contents/frontmatter/en-abstract}
+\input{contents/frontmatter/toc-cn}
+\input{contents/frontmatter/toc-en}
+\input{contents/frontmatter/lists}
+\input{contents/frontmatter/variables}
+
+\mainmatter
+\setcounter{page}{1}
+
+\input{contents/chapters/chapter1}
+\input{contents/chapters/chapter1-sample}
+\input{contents/backmatter/conclusion}
+\input{contents/backmatter/references}
+\input{contents/appendices/program}
+\input{contents/backmatter/author-resume}
+\input{contents/backmatter/originality}
+\input{contents/backmatter/dataset}
 
 \end{document}

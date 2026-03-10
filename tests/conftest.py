@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import subprocess
 import tempfile
@@ -16,8 +17,15 @@ from PIL import Image
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MAIN_PDF = PROJECT_ROOT / "main.pdf"
 MAIN_FILE = PROJECT_ROOT / "main.tex"
+CLASS_FILE = PROJECT_ROOT / "styles" / "jougraduate.cls"
+HEADINGS_FILE = PROJECT_ROOT / "styles" / "jougraduateheadings.sty"
 JOUFONTS_FILE = PROJECT_ROOT / "styles" / "joufonts.sty"
 FONT_DIR = PROJECT_ROOT / "fonts" / "opensource"
+REFERENCE_DOC = PROJECT_ROOT / "references" / "江苏海洋大学研究生硕士学位论文撰写模版.doc"
+REFERENCE_DOCX = PROJECT_ROOT / "references" / "江苏海洋大学研究生硕士学位论文撰写模版.docx"
+REFERENCE_PDF = PROJECT_ROOT / "references" / "江苏海洋大学研究生硕士学位论文撰写模版.pdf"
+REFERENCE_XML = PROJECT_ROOT / "references" / "unpacked" / "word" / "document.xml"
+SPEC_PATH = PROJECT_ROOT / "tests" / "graduate_reference_spec.json"
 CHECK_FONTS_SCRIPT = PROJECT_ROOT / "scripts" / "check_fonts.py"
 WORKFLOW_FILE = PROJECT_ROOT / ".github" / "workflows" / "cross-platform-fonts.yml"
 FONTPATHS_EXAMPLE = PROJECT_ROOT / "styles" / "joufontspaths.local.example.tex"
@@ -102,3 +110,81 @@ def get_pdfinfo(pdf_path: Path) -> dict[str, str]:
         key, value = line.split(":", 1)
         info[key.strip()] = value.strip()
     return info
+
+
+def bbox_lines(pdf: Path, page: int) -> list[dict[str, float | str]]:
+    completed = subprocess.run(
+        ["pdftotext", "-enc", "UTF-8", "-bbox-layout", "-f", str(page), "-l", str(page), str(pdf), "-"],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    html = completed.stdout
+    line_pattern = re.compile(
+        r'<line xMin="(?P<xmin>[^"]+)" yMin="(?P<ymin>[^"]+)" '
+        r'xMax="(?P<xmax>[^"]+)" yMax="(?P<ymax>[^"]+)">(?P<body>.*?)</line>',
+        re.DOTALL,
+    )
+    word_pattern = re.compile(r"<word [^>]*>(?P<text>.*?)</word>", re.DOTALL)
+
+    lines: list[dict[str, float | str]] = []
+    for match in line_pattern.finditer(html):
+        words = "".join(word_pattern.findall(match.group("body")))
+        lines.append(
+            {
+                "text": words,
+                "xMin": float(match.group("xmin")),
+                "yMin": float(match.group("ymin")),
+                "xMax": float(match.group("xmax")),
+                "yMax": float(match.group("ymax")),
+            }
+        )
+    return lines
+
+
+def find_line_containing(pdf: Path, page: int, pattern: str) -> dict[str, float | str] | None:
+    normalized_pattern = normalize(pattern)
+    candidates: list[dict[str, float | str]] = []
+    for line in bbox_lines(pdf, page):
+        normalized_text = normalize(str(line["text"]))
+        if normalized_pattern == normalized_text:
+            return line
+        if normalized_pattern in normalized_text or normalized_text in normalized_pattern:
+            candidates.append(line)
+    if not candidates:
+        return None
+    return min(
+        candidates,
+        key=lambda item: (
+            abs(len(normalize(str(item["text"]))) - len(normalized_pattern)),
+            float(item["yMin"]),
+            float(item["xMin"]),
+        ),
+    )
+
+
+def line_center(line: dict[str, float | str]) -> tuple[float, float]:
+    return (
+        (float(line["xMin"]) + float(line["xMax"])) / 2,
+        (float(line["yMin"]) + float(line["yMax"])) / 2,
+    )
+
+
+def find_page_by_phrases(pages: dict[int, str], phrases: list[str]) -> int | None:
+    normalized_phrases = [normalize(p) for p in phrases]
+    for page, text in pages.items():
+        if all(phrase in text for phrase in normalized_phrases):
+            return page
+    return None
+
+
+@pytest.fixture(scope="session")
+def reference_spec() -> dict:
+    return json.loads(SPEC_PATH.read_text(encoding="utf-8"))
+
+
+@pytest.fixture(scope="session")
+def thesis_pages() -> dict[int, str]:
+    if not MAIN_PDF.exists():
+        pytest.skip("缺少 main.pdf")
+    return {page: normalize(page_text(MAIN_PDF, page)) for page in range(1, pdf_page_count(MAIN_PDF) + 1)}

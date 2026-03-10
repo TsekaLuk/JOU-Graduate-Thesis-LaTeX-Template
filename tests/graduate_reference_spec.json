@@ -1,0 +1,129 @@
+{
+  "reference": {
+    "doc": "references/江苏海洋大学研究生硕士学位论文撰写模版.doc",
+    "docx": "references/江苏海洋大学研究生硕士学位论文撰写模版.docx",
+    "pdf": "references/江苏海洋大学研究生硕士学位论文撰写模版.pdf",
+    "word_xml": "references/unpacked/word/document.xml",
+    "expected_pages": 22
+  },
+  "template": {
+    "pdf": "main.pdf",
+    "expected_pages": 19
+  },
+  "pages": [
+    {
+      "id": "cover",
+      "template_page": 1,
+      "reference_page": 1,
+      "phrases": ["硕士学位论文", "浮选旋流分选机理研究", "江苏海洋大学"]
+    },
+    {
+      "id": "authorization",
+      "template_page": 2,
+      "reference_page": 2,
+      "phrases": ["中国国家图书馆保存研究生学位论文", "作者签字", "导师签字"]
+    },
+    {
+      "id": "inner-cover",
+      "template_page": 3,
+      "reference_page": 3,
+      "phrases": ["申请学位", "培养单位", "研究方向"]
+    },
+    {
+      "id": "review",
+      "template_page": 4,
+      "reference_page": 4,
+      "phrases": ["研究生在规定的学习年限内", "同意将本论文作为学位申请论文"]
+    },
+    {
+      "id": "acknowledgements",
+      "template_page": 5,
+      "reference_page": 5,
+      "phrases": ["谨向在论文选题", "感谢家人一直以来的理解与陪伴"]
+    },
+    {
+      "id": "cn-abstract",
+      "template_page": 6,
+      "reference_page": 6,
+      "phrases": ["旋流-静态微泡浮选是一种具有我国自主知识产权", "关键词：浮选；旋流"]
+    },
+    {
+      "id": "en-abstract",
+      "template_page": 7,
+      "reference_page": 7,
+      "phrases": ["Cyclonicstaticmicro-bubbleflotationisanovelcolumnseparationmethod", "Keywords:flotation"]
+    },
+    {
+      "id": "toc-cn",
+      "template_page": 8,
+      "reference_page": 10,
+      "phrases": ["变量注释表", "1绪论"]
+    },
+    {
+      "id": "toc-en",
+      "template_page": 9,
+      "reference_page": 11,
+      "phrases": ["ListofFigures", "ThesisDataCollection"]
+    },
+    {
+      "id": "lists",
+      "template_page": 10,
+      "reference_page": 12,
+      "phrases": ["图清单", "表清单", "Particlesizedistributionresults"]
+    },
+    {
+      "id": "variables",
+      "template_page": 11,
+      "reference_page": 13,
+      "phrases": ["变量注释表", "MSPPT", "HMPI"]
+    },
+    {
+      "id": "body-first",
+      "template_page": 12,
+      "reference_page": 14,
+      "phrases": ["1Introduction", "1.1概述", "显著强化细粒级颗粒的界面行为"]
+    },
+    {
+      "id": "body-second",
+      "template_page": 13,
+      "reference_page": 15,
+      "phrases": ["1.2研究方法", "Table1-1Particlesizedistributionresults", "Figure1-1Relationshipbetweenthepressure"]
+    },
+    {
+      "id": "conclusion",
+      "template_page": 14,
+      "reference_page": 16,
+      "phrases": ["结论", "Conclusions", "研究生参考文档与WPS导出PDF"]
+    },
+    {
+      "id": "references",
+      "template_page": 15,
+      "reference_page": 18,
+      "phrases": ["参考文献", "示例文献标题", "示例会议论文标题"]
+    },
+    {
+      "id": "program",
+      "template_page": 16,
+      "reference_page": 19,
+      "phrases": ["煤炭供需预警程序", "ImportsSystem.Math", "PublicClassForm1"]
+    },
+    {
+      "id": "author-resume",
+      "template_page": 17,
+      "reference_page": 20,
+      "phrases": ["作者简历", "一、教育经历", "三、研究项目"]
+    },
+    {
+      "id": "originality",
+      "template_page": 18,
+      "reference_page": 21,
+      "phrases": ["学位论文原创性声明", "本人郑重声明：所呈交的学位论文", "法律后果由本人承担"]
+    },
+    {
+      "id": "dataset",
+      "template_page": 19,
+      "reference_page": 22,
+      "phrases": ["学位论文数据集", "学位授予单位名称", "StudyontheCyclonicSeparationMechanismofFlotation"]
+    }
+  ]
+}
