@@ -12,13 +12,17 @@ THESIS_DEPS = $(MAIN).tex \
 	$(wildcard contents/appendices/*.tex) \
 	$(wildcard references/*.bib)
 
-.PHONY: all fonts clean cleanall view help test
+.PHONY: all fonts import-fonts clean cleanall view help test
 
 all: fonts $(MAIN).pdf
 
 fonts:
 	@echo "==> 检查仓库字体资源..."
 	python3 scripts/download_fonts.py
+
+import-fonts:
+	@echo "==> 从常见位置导入本地字体..."
+	python3 scripts/import_fonts.py
 
 $(MAIN).pdf: $(THESIS_DEPS)
 	@echo "==> 第1次编译..."
@@ -60,6 +64,7 @@ help:
 	@echo ""
 	@echo "可用命令:"
 	@echo "  make        - 下载字体并编译主模板"
+	@echo "  make import-fonts - 从系统/WPS/桌面字体目录导入常用字体到 fonts/proprietary"
 	@echo "  make test   - 编译主模板并运行 pytest 合同"
 	@echo "  make clean  - 清理临时文件"
 	@echo "  make cleanall - 连同 main.pdf 一起清理"

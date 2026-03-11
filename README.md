@@ -19,6 +19,7 @@
 5. 运行 `latexmk -xelatex main.tex` 编译论文。
 
 如果你只想先看模板效果，直接编译 [main.tex](main.tex) 即可。
+如果你本机已有常用学术字体，可先运行 `make import-fonts` 自动导入到 `fonts/proprietary/`。
 
 ## 推荐编辑边界
 
@@ -61,6 +62,7 @@
 
 ## 验证命令
 
+- `make import-fonts`
 - `latexmk -xelatex main.tex`
 - `pytest -q`
 

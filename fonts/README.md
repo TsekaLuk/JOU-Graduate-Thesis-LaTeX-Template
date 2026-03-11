@@ -18,6 +18,18 @@ WPS 字体仍然支持，但只是兼容兜底，不是默认优先级。
 ### 1. `fonts/proprietary/` 本地正式字体
 
 如果你已经拥有合法字体文件，把它们放在 `fonts/proprietary/`，模板会优先使用。
+也可以直接运行：
+
+```bash
+make import-fonts
+```
+
+脚本会自动尝试从这些常见位置复制并规范命名：
+
+- Windows `C:/Windows/Fonts`
+- macOS `/System/Library/Fonts`、`/Library/Fonts`、`~/Library/Fonts`
+- WPS 安装目录
+- 桌面字体目录，例如 `~/Desktop/毕业论文字体`
 
 推荐文件名：
 
