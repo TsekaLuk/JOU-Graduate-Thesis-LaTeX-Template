@@ -55,6 +55,8 @@
 
 本仓库是同级本科模板工程标准的研究生版本，继续复用：
 
+- 本科生模板直达：[江苏海洋大学本科生毕业论文模板](https://github.com/TsekaLuk/JOU-Undergraduate-Thesis-LaTeX-Template)
+
 - 字体检测与加载系统
 - 开源兜底字体
 - 跨平台字体兼容测试
