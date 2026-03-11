@@ -1,35 +1,49 @@
+\clearpage
 \phantomsection
 \label{page:body-second}
 
-\section{研究方法}
+\subsection{研究方法}
 
-为保证旋流分选机理分析的可解释性，本文采用理论分析、实验对比与图表展示相结合的方式组织样例内容。本页保留表格、插图与中英文标题的典型版式，用于后续对齐测试和视觉回归。
+\noindent\JOUBodySecondLead
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
-    \caption{筛分粒度组成\\\textnormal{Table 1-1 Particle size distribution results}}
+    \JOUTableBicaption{\JOUBodySecondTableTitleCN}{\JOUBodySecondTableTitleEN}
     \label{tab:sieve}
-    \begin{tabular}{C{2.4cm}C{2.0cm}C{2.0cm}C{2.4cm}C{2.4cm}}
+    \renewcommand{\arraystretch}{1.16}
+    \begin{tabular}{C{2.20cm}C{1.80cm}C{1.80cm}C{2.20cm}C{2.20cm}}
         \toprule
-        粒级，mm & 产率，\% & 灰分，\% & 累计产率，\% & 累计灰分，\% \\
-        \midrule
-        $>0.5$ & 3.80 & 7.38 & 3.80 & 7.38 \\
-        0.5$\sim$0.25 & 4.55 & 4.56 & 8.35 & 5.84 \\
-        0.25$\sim$0.125 & 3.32 & 5.47 & 11.67 & 5.74 \\
-        0.125$\sim$0.074 & 4.74 & 3.63 & 16.41 & 5.13 \\
-        0.074$\sim$0.045 & 10.72 & 3.11 & 27.13 & 4.33 \\
-        $<0.045$ & 72.87 & 4.64 & 100.00 & 4.56 \\
+        \JOUBodySecondTableRows
         \bottomrule
     \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
+\vspace{0.8\baselineskip}
+
+\begin{figure}[H]
     \centering
-    \fbox{\rule{0pt}{5cm}\rule{11cm}{0pt}}
-    \caption{循环矿浆压力与柱体背压的关系\\\textnormal{Figure 1-1 Relationship between the pressure of circulating pulp and the back pressure}}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=8.6cm,
+            height=5.5cm,
+            xmin=500, xmax=1400,
+            ymin=0.03, ymax=0.14,
+            xtick={500,600,700,800,900,1000,1100,1200,1300,1400},
+            ytick={0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.10,0.11,0.12,0.13,0.14},
+            tick label style={font=\rmfamily\fontsize{7pt}{8pt}\selectfont},
+            label style={font=\songti\fontsize{9pt}{11pt}\selectfont},
+            legend style={font=\songti\fontsize{8pt}{9pt}\selectfont, draw=none, fill=none, at={(0.06,0.98)}, anchor=north west},
+            legend cell align=left,
+            axis lines=left,
+            xlabel={循环泵转数 r / min},
+            ylabel={循环矿浆压力 / MPa},
+        ]
+            \addplot+[black, mark=square*, mark size=1.6pt, line width=0.55pt] coordinates {\JOUBodySecondSeriesOne};
+            \addplot+[black, mark=*, mark size=1.7pt, line width=0.55pt] coordinates {\JOUBodySecondSeriesTwo};
+            \addplot+[black, mark=triangle*, mark size=2.0pt, line width=0.55pt] coordinates {\JOUBodySecondSeriesThree};
+            \legend{\JOUBodySecondLegendOne,\JOUBodySecondLegendTwo,\JOUBodySecondLegendThree}
+        \end{axis}
+    \end{tikzpicture}
+    \JOUFigureBicaption{\JOUBodySecondFigureTitleCN}{\JOUBodySecondFigureTitleEN}
     \label{fig:pressure}
 \end{figure}
-
-从 \figref{fig:pressure} 和 \tabref{tab:sieve} 可以看出，参数变化会直接改变流场稳定性与分选指标。后续章节可在这一版式基础上继续扩展完整正文内容。
-
-\clearpage

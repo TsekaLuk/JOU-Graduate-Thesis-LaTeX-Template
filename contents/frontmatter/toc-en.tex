@@ -3,18 +3,17 @@
 \phantomsection
 \label{page:toc-en}
 
+\JOUWriteEnglishTocRegular{Contents}
 \JOUFrontmatterEnglishTitle{Contents}
 
-{\rmfamily\zihao{-4}
-\noindent Abstract \dotfill \pageref{page:abstract-cn}\par
-\noindent Contents \dotfill \pageref{page:toc-cn}\par
-\noindent List of Figures \dotfill \pageref{page:lists}\par
-\noindent List of Tables \dotfill \pageref{page:lists}\par
-\noindent List of Variables \dotfill \pageref{page:variables}\par
-\noindent Introduction \dotfill \pageref{page:body-first}\par
-\noindent Conclusions \dotfill \pageref{page:conclusion}\par
-\noindent References \dotfill \pageref{page:references}\par
-\noindent Author's Resume \dotfill \pageref{page:author-resume}\par
-\noindent Declaration of Thesis Originality \dotfill \pageref{page:originality}\par
-\noindent Thesis Data Collection \dotfill \pageref{page:dataset}\par
-}
+\makeatletter
+\begingroup
+\let\addvspace\@gobble
+\@starttoc{toe}
+\endgroup
+\makeatother
+
+\vfill
+{\songti\fontsize{10.5pt}{12pt}\selectfont
+硕士：Thesis\\
+博士：Dissertation}

@@ -39,6 +39,7 @@
     \clearpage
     \phantomsection
     \markboth{}{}%
+    \thispagestyle{frontmatterstyle}%
     {\centering\JOUHeadingHei\bfseries\zihao{-2}#1\par}%
     \vspace{0.5\baselineskip}%
 }
@@ -117,6 +118,12 @@
         {\titlerule*[0.5pc]{.}\contentspage}%
     \titlecontents{section}[2.8em]{\songti\zihao{-4}}%
         {\contentslabel{3.4em}}{}%
+        {\titlerule*[0.5pc]{.}\contentspage}%
+    \titlecontents{figure}[0pt]{\songti\zihao{5}}%
+        {\contentslabel{6.2em}}{}%
+        {\titlerule*[0.5pc]{.}\contentspage}%
+    \titlecontents{table}[0pt]{\songti\zihao{5}}%
+        {\contentslabel{6.2em}}{}%
         {\titlerule*[0.5pc]{.}\contentspage}%
 }
 

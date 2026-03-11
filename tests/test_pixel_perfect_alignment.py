@@ -9,12 +9,9 @@ from conftest import MAIN_PDF, REFERENCE_PDF, find_line_containing, line_center
 
 
 ALIGNMENT_CASES = [
-    {"id": "toc-title", "template_page": 8, "reference_page": 10, "phrase": "摘要", "x_tol": 8, "y_tol": 18},
-    {"id": "lists-title", "template_page": 10, "reference_page": 12, "phrase": "图清单", "x_tol": 8, "y_tol": 18},
-    {"id": "lists-subtitle", "template_page": 10, "reference_page": 12, "phrase": "表清单", "x_tol": 8, "y_tol": 48},
-    {"id": "variables-title", "template_page": 11, "reference_page": 13, "phrase": "变量注释表", "x_tol": 8, "y_tol": 18},
-    {"id": "variables-first-item", "template_page": 11, "reference_page": 13, "phrase": "V1", "x_tol": 25, "y_tol": 20},
-    {"id": "originality-body", "template_page": 18, "reference_page": 21, "phrase": "除文中已经标明引用的内容外", "x_tol": 12, "y_tol": 24},
+    {"id": "program-appendix-title", "template_page": 16, "reference_page": 19, "phrase": "附录1", "x_tol": 20, "y_tol": 25},
+    {"id": "author-resume-first-section", "template_page": 17, "reference_page": 20, "phrase": "一、基本情况", "x_tol": 25, "y_tol": 30},
+    {"id": "originality-signature", "template_page": 18, "reference_page": 21, "phrase": "学位论文作者签字：", "x_tol": 24, "y_tol": 18},
     {"id": "dataset-first-field", "template_page": 19, "reference_page": 22, "phrase": "关键词*", "x_tol": 40, "y_tol": 35},
     {"id": "dataset-org-field", "template_page": 19, "reference_page": 22, "phrase": "学位授予单位名称", "x_tol": 45, "y_tol": 60}
 ]

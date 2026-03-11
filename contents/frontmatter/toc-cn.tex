@@ -1,6 +1,14 @@
 \clearpage
+\setcounter{page}{4}
 \thispagestyle{frontmatterstyle}
 \phantomsection
 \label{page:toc-cn}
 \addcontentsline{toc}{chapter}{目录}
-\tableofcontents
+
+\JOUFrontmatterTitle{目\hspace{2em}录}
+\makeatletter
+\begingroup
+\let\addvspace\@gobble
+\@starttoc{toc}
+\endgroup
+\makeatother

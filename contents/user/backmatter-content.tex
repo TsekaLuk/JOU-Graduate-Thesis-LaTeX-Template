@@ -1,0 +1,54 @@
+% 用户内容入口：附录、作者简历、声明、数据集等后置内容
+% 这些页面允许锁定版式，但内容本身不应写死在页面文件中。
+
+\def\JOUAppendixProgramTitle{煤炭供需预警程序}
+\long\def\JOUAppendixProgramCode{%
+Imports System.Math\par
+Imports System.Drawing\par
+Public Class Form1\par
+\vspace{1.25\baselineskip}
+\hspace*{1.1em}Private Sub Form1\_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load\par
+\hspace*{3.6em}With Grid1\par
+\hspace*{5.2em}.Cols = 9\par
+\hspace*{5.2em}.Rows = 40\par
+}
+
+\long\def\JOUAuthorResumeBody{%
+\noindent{\JOUHeadingHei\bfseries\zihao{-3}一、基本情况}\par
+\vspace{0.3\baselineskip}
+\noindent\hspace*{1.8em}姓名：**\hspace{1em}性别：男\hspace{1em}民族：汉\hspace{1em}出生年月：1976-07-23\hspace{1em}籍贯：江苏省东台市\par
+
+\vspace{0.7\baselineskip}
+\noindent{\JOUHeadingHei\bfseries\zihao{-3}二、学术论文}\par
+\vspace{0.25\baselineskip}
+\noindent 1. **. 煤泥脱硫技术现状[J].煤泥脱硫技术，2004（1）：53-55.\par
+\noindent 2. **. 黄铁矿显微赋存特征对浮选脱硫的影响[J].煤技术，2005（5）：6-7.\par
+
+\vspace{0.35\baselineskip}
+\noindent ……\par
+
+\vspace{0.55\baselineskip}
+\noindent{\JOUHeadingHei\bfseries\zihao{-3}三、获奖情况}\par
+\vspace{0.25\baselineskip}
+\noindent 1. **. 旋流-静态微泡柱分离方法研究与旋流-静态微泡浮选床研制. 中国机械工业科技进步\par
+\noindent \hspace*{1.8em}奖二等奖；\par
+
+\vspace{0.35\baselineskip}
+\noindent ……\par
+
+\vspace{0.55\baselineskip}
+\noindent{\JOUHeadingHei\bfseries\zihao{-3}四、研究项目}\par
+\vspace{0.25\baselineskip}
+\noindent 1. 废弃煤泥的洁净加工工与利用.国家重点技术创新项目，编号：国经贸技术（1999）598号,\par
+\noindent \hspace*{1.8em}参加人员；\par
+}
+
+\long\def\JOUOriginalityStatementBody{%
+本人郑重声明：所呈交的学位论文《\JOUChineseTitle》是在导师指导下，在\JOUAwardingInstitution 攻读学位期间进行的研究工作所取得的成果。据我所知，除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的研究成果。对本文的研究做出贡献的个人和集体，均已在文中以明确方式标明。本人完全意识到本声明的法律结果由本人承担。%
+}
+
+\def\JOUDownloadHintLineOne{此页可下载}
+\def\JOUDownloadHintLineTwo{签名需手写}
+\def\JOUDataCollectionStartTitle{学位论文数据集}
+\def\JOUDataCollectionFormatLine{推荐格式：application/msword;application/pdf}
+\def\JOUDataCollectionFootnote{注：共33项，其中带*为必填数据，共22项。}

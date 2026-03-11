@@ -1,56 +1,74 @@
-\JOUBackmatterChapter{学位论文数据集}
+\clearpage
+\thispagestyle{frontmatterstyle}
+\phantomsection
 \label{page:dataset}
+\addcontentsline{toc}{chapter}{学位论文数据集}
+\JOUWriteEnglishTocMajor{Thesis/Dissertation Data Collection}
+\null
 
-{\zihao{5}\songti
-\begin{longtable}{|L{3.1cm}|L{8.0cm}|}
-    \hline
-    关键词* & 浮选；旋流；分选机理；浮选动力学 \\
-    \hline
-    密级* & \JOUConfidentiality \\
-    \hline
-    中图分类号* & \JOUClassificationNumber \\
-    \hline
-    论文资助 & \JOUGrantInfo \\
-    \hline
-    学位授予单位名称* & 江苏海洋大学 \\
-    \hline
-    学位授予单位代码* & \JOUUniversityCode \\
-    \hline
-    学位类别* & 学术学位 \\
-    \hline
-    学位级别* & 硕士 \\
-    \hline
-    论文题名* & \JOUChineseTitle \\
-    \hline
-    并列题名* & \JOUEnglishTitle \\
-    \hline
-    论文语种* & 中文 \\
-    \hline
-    作者姓名* & \JOUAuthorName \\
-    \hline
-    学号* & \JOUStudentId \\
-    \hline
-    培养单位名称* & \JOUCollege \\
-    \hline
-    培养单位地址 & 江苏省连云港市海州区苍梧路59号 \\
-    \hline
-    邮编 & 222005 \\
-    \hline
-    学科专业* & \JOUProgram \\
-    \hline
-    研究方向* & \JOUResearchDirection \\
-    \hline
-    学制* & \JOUProgramDuration \\
-    \hline
-    学位授予年* & 2026 \\
-    \hline
-    论文提交日期* & \JOUSubmissionDate \\
-    \hline
-    导师姓名* & \JOUSupervisorName \\
-    \hline
-    职称* & \JOUSupervisorTitle \\
-    \hline
-    电子版论文提交格式 & application/pdf \\
-    \hline
-\end{longtable}
+\begingroup
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.28}
+\newcommand{\JOUDataHead}[1]{{\JOUHeadingHei\bfseries\zihao{5}#1}}
+\newcommand{\JOUDataCell}[1]{{\songti\zihao{5}#1}}
+
+\begin{textblock*}{16.35cm}(2.05cm,2.62cm)
+{\songti\zihao{5}
+\begin{tabular}{|C{3.90cm}|C{2.95cm}|C{3.10cm}|C{2.75cm}|C{3.65cm}|}
+\hline
+\JOUDataHead{关键词*} & \JOUDataHead{密级*} & \JOUDataHead{中图分类号*} & \JOUDataHead{UDC} & \JOUDataHead{论文资助} \\
+\hline
+\JOUDataCell{} & \JOUDataCell{} & \JOUDataCell{} & \JOUDataCell{} & \JOUDataCell{} \\
+\hline
+\JOUDataHead{学位授予单位名称*} & \JOUDataHead{学位授予单位代码*} & \JOUDataHead{学位类别*} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{学位级别*}} \\
+\hline
+\JOUDataCell{\JOUAwardingInstitution} & \JOUDataCell{\JOUAwardingInstitutionCode} & \JOUDataCell{\JOUDegreeCategory} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{\JOUDegreeLevel}} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{论文题名*}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{并列题名*}} & \JOUDataHead{论文语种*} \\
+\hline
+\multicolumn{2}{|L{6.85cm}|}{\JOUDataCell{\JOUChineseTitle}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\JOUEnglishTitle}} & \JOUDataCell{\JOUThesisLanguage} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{作者姓名*}} & \multicolumn{3}{C{9.50cm}|}{\JOUDataHead{学号*}} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUAuthorName}} & \multicolumn{3}{C{9.50cm}|}{\JOUDataCell{\JOUStudentId}} \\
+\hline
+\JOUDataHead{培养单位名称*} & \JOUDataHead{培养单位代码*} & \JOUDataHead{培养单位地址} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{邮编}} \\
+\hline
+\JOUDataCell{\JOUTrainingUnitName} & \JOUDataCell{\JOUTrainingUnitCode} & \JOUDataCell{\JOUTrainingUnitAddress} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{\JOUPostalCode}} \\
+\hline
+\JOUDataHead{学科专业*} & \JOUDataHead{研究方向*} & \JOUDataHead{学制*} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{学位授予年*}} \\
+\hline
+\JOUDataCell{\JOUProgram} & \JOUDataCell{\JOUResearchDirection} & \JOUDataCell{\JOUProgramDuration} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{\JOUAwardYear}} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{论文提交日期*}} & \multicolumn{3}{C{9.50cm}|}{} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUSubmissionDate}} & \multicolumn{3}{C{9.50cm}|}{} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{导师姓名*}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{职称*}} & \JOUDataCell{} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUSupervisorName}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\JOUSupervisorTitle}} & \JOUDataCell{} \\
+\hline
+\JOUDataHead{评阅人} & \multicolumn{2}{C{6.05cm}|}{\JOUDataHead{答辩委员会主席*}} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{答辩委员会成员}} \\
+\hline
+\JOUDataCell{\JOUReviewers} & \multicolumn{2}{C{6.05cm}|}{\JOUDataCell{\JOUDefenseChair}} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{}} \\
+\hline
+\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\parbox[t]{16.05cm}{电子版论文提交格式\hspace{1em}文本（\hspace{0.7em}）\hspace{0.8em}图像（\hspace{0.7em}）\hspace{0.8em}视频（\hspace{0.7em}）\hspace{0.8em}音频（\hspace{0.7em}）\hspace{0.8em}多媒体（\hspace{0.7em}）\\\hspace*{8.7em}其他（\hspace{0.7em}）}}} \\
+\hline
+\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\JOUDataCollectionFormatLine}} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{电子版论文出版（发布）者}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{电子版论文出版（发布）地}} & \JOUDataHead{权限声明} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{} & \multicolumn{2}{C{5.85cm}|}{} & \JOUDataCell{} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{论文总页数*}} & \multicolumn{3}{C{9.50cm}|}{} \\
+\hline
+\multicolumn{2}{|C{6.85cm}|}{} & \multicolumn{3}{C{9.50cm}|}{} \\
+\hline
+\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\JOUDataCollectionFootnote}} \\
+\hline
+\end{tabular}
 }
+\end{textblock*}
+\endgroup
+
+\vfill\null

@@ -1,49 +1,70 @@
-<div align="center">
-
-<img src="figures/jou-logo-full.png" alt="江苏海洋大学校徽" width="200"/>
-
 # 江苏海洋大学研究生毕业论文 LaTeX 模板
 
-**JOU Graduate Thesis LaTeX Template**
+本项目的目标不是“复刻一篇样张论文”，而是提供一个可以正常写作、符合学术规范、并尽量贴近学校参考件的研究生毕业论文模板。
 
-*Jiangsu Ocean University Graduate Thesis LaTeX Template*
+模板设计思路参考了主流高校模板的共同做法，例如 [ThuThesis](https://github.com/tuna/thuthesis)、[SJTUThesis](https://github.com/sjtug/SJTUThesis)、[ustcthesis](https://github.com/ustctug/ustcthesis) 和 [fduthesis](https://github.com/stone-zeng/fduthesis)：
 
-[![License: LPPL 1.3c](https://img.shields.io/badge/License-LPPL%201.3c-blue.svg)](https://www.latex-project.org/lppl.txt)
-[![TeX Live](https://img.shields.io/badge/TeX%20Live-2020+-green.svg)](https://www.tug.org/texlive/)
-[![XeLaTeX](https://img.shields.io/badge/Engine-XeLaTeX-orange.svg)](#)
-[![Status: WIP](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow.svg)](#)
+- 用户只改内容入口，不改版式代码
+- 特殊页锁版，正文和目录链路保持正常 LaTeX 写作方式
+- 图表、目录、参考文献、交叉引用自动生成
+- 编译入口尽量简单，默认使用 `latexmk + XeLaTeX`
+- 保留像素级回归测试，避免模板迭代时版式退步
 
-简体中文 | [English](README_EN.md)
+## 3 分钟上手
 
-</div>
+1. 修改 [contents/shared/metadata.tex](contents/shared/metadata.tex) 中的题名、作者、导师、学位信息。
+2. 修改 [contents/user/frontmatter-content.tex](contents/user/frontmatter-content.tex) 中的致谢、摘要、关键词、变量表。
+3. 修改 [contents/user/body-content.tex](contents/user/body-content.tex) 中的正文示例、表格和插图标题。
+4. 修改 [contents/user/backmatter-content.tex](contents/user/backmatter-content.tex) 中的附录、作者简历、原创性声明正文和数据集说明。
+5. 运行 `latexmk -xelatex main.tex` 编译论文。
 
----
+如果你只想先看模板效果，直接编译 [main.tex](main.tex) 即可。
 
-> **本模板正在建设中。** 排版规范参照江苏海洋大学研究生学位论文撰写要求整理，欢迎参与贡献。
+## 推荐编辑边界
 
-**Word 是提交格式，LaTeX 是写作方式。** 本项目希望为江苏海洋大学研究生提供更规范、现代化的学术写作工具。
+日常写论文时，优先编辑这些文件：
+
+- [contents/shared/metadata.tex](contents/shared/metadata.tex)
+- [contents/user/frontmatter-content.tex](contents/user/frontmatter-content.tex)
+- [contents/user/body-content.tex](contents/user/body-content.tex)
+- [contents/user/backmatter-content.tex](contents/user/backmatter-content.tex)
+
+[contents/shared/metadata.tex](contents/shared/metadata.tex) 现在也负责这些结构化字段：
+
+- 学位类别、学位级别
+- 学位授予单位、培养单位、单位代码
+- 培养单位地址、邮编
+- 论文语种、学位授予年
+
+通常不要直接修改这些文件，除非你在调整模板样式：
+
+- [styles/jougraduate.cls](styles/jougraduate.cls)
+- [styles/jougraduateheadings.sty](styles/jougraduateheadings.sty)
+- [contents/frontmatter/](contents/frontmatter)
+- [contents/backmatter/](contents/backmatter)
+
+## 当前模板策略
+
+- 封面、授权声明、内封、审阅认定书等学校固定页采用锁版策略。
+- 摘要、目录、图表清单、变量表、正文、参考文献采用正常模板链路。
+- 研究生模板默认不生成硕士论文不需要的 `Extended Abstract`。
+- 通过 `pytest` 保持与参考 Word/PDF 的结构和关键页面位置对齐。
 
 ## 与本科生模板的关系
 
-本仓库是 [JOU-Undergraduate-Thesis-LaTeX-Template](https://github.com/TsekaLuk/JOU-Undergraduate-Thesis-LaTeX-Template) 的研究生版本，共享以下基础设施：
+本仓库是同级本科模板工程标准的研究生版本，继续复用：
 
-- 字体检测与加载系统（`styles/joufonts.sty`）
-- 内置开源兜底字体（`fonts/opensource/`）
-- 跨平台 CI 矩阵（Ubuntu / macOS / Windows）
-- 字体管理脚本（`scripts/`）
+- 字体检测与加载系统
+- 开源兜底字体
+- 跨平台字体兼容测试
+- 参考文档 XML 拆解与 PDF 对齐基线
 
-## 项目状态
+## 验证命令
 
-- [ ] 研究生学位论文排版规范调研
-- [ ] 文档类 `jougraduate.cls` 开发
-- [ ] 封面、摘要、目录等核心页面实现
-- [ ] 配套表单模板
-- [ ] E2E 测试
-
-## 字体策略
-
-与本科生模板相同，详见 [fonts/README.md](fonts/README.md)。
+- `latexmk -xelatex main.tex`
+- `pytest -q`
 
 ## 开源许可
 
 项目代码采用 [LaTeX Project Public License v1.3c](https://www.latex-project.org/lppl.txt)。
+仓库内的开源兜底字体随各自许可证分发；用户本地放入 `fonts/proprietary/` 的专有字体不随仓库再分发，仍受原字体许可约束。

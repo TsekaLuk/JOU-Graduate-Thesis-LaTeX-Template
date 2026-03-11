@@ -33,3 +33,9 @@ def test_inner_cover_alignment():
     _assert_line_close(MAIN_PDF, 3, REFERENCE_PDF, 3, "江苏海洋大学", x_tol=20, y_tol=35)
     _assert_line_close(MAIN_PDF, 3, REFERENCE_PDF, 3, "硕士学位论文", x_tol=25, y_tol=40)
     _assert_line_close(MAIN_PDF, 3, REFERENCE_PDF, 3, "浮选旋流分选机理研究", x_tol=25, y_tol=45)
+
+
+def test_review_page_alignment():
+    _assert_line_close(MAIN_PDF, 4, REFERENCE_PDF, 4, "论文审阅认定书", x_tol=20, y_tol=20)
+    _assert_line_close(MAIN_PDF, 4, REFERENCE_PDF, 4, "导师签字：", x_tol=15, y_tol=20)
+    _assert_line_close(MAIN_PDF, 4, REFERENCE_PDF, 4, "此页可下载", x_tol=15, y_tol=20)

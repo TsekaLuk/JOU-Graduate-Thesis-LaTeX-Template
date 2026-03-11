@@ -50,8 +50,8 @@
     {
       "id": "en-abstract",
       "template_page": 7,
-      "reference_page": 7,
-      "phrases": ["Cyclonicstaticmicro-bubbleflotationisanovelcolumnseparationmethod", "Keywords:flotation"]
+      "reference_page": 8,
+      "phrases": ["Cyclonicstaticmicro-bubbleflotationisanewcolumnseparationmethod", "Keywords:flotation", "mineralseparation"]
     },
     {
       "id": "toc-cn",
@@ -63,7 +63,7 @@
       "id": "toc-en",
       "template_page": 9,
       "reference_page": 11,
-      "phrases": ["ListofFigures", "ThesisDataCollection"]
+      "phrases": ["ListofFigures", "Thesis/DissertationDataCollection"]
     },
     {
       "id": "lists",
@@ -80,26 +80,26 @@
     {
       "id": "body-first",
       "template_page": 12,
-      "reference_page": 14,
-      "phrases": ["1Introduction", "1.1概述", "显著强化细粒级颗粒的界面行为"]
+      "reference_page": 15,
+      "phrases": ["1Introduction", "1.1.1研究目标", "描述旋流－静态微泡浮选柱的旋流场结构"]
     },
     {
       "id": "body-second",
       "template_page": 13,
-      "reference_page": 15,
-      "phrases": ["1.2研究方法", "Table1-1Particlesizedistributionresults", "Figure1-1Relationshipbetweenthepressure"]
+      "reference_page": 16,
+      "phrases": ["Table1-1Particlesizedistributionresults", "Figure1-1Relationshipbetweenthepressure", "背压为0.37m水柱"]
     },
     {
       "id": "conclusion",
       "template_page": 14,
-      "reference_page": 16,
-      "phrases": ["结论", "Conclusions", "研究生参考文档与WPS导出PDF"]
+      "reference_page": 17,
+      "phrases": ["8结论", "8Conclusions", "本文从自然因素、外部环境和内部结构等方面"]
     },
     {
       "id": "references",
       "template_page": 15,
       "reference_page": 18,
-      "phrases": ["参考文献", "示例文献标题", "示例会议论文标题"]
+      "phrases": ["参考文献", "新结构LHJ浮选柱的分选机理及数学模型研究", "Finecoalflotationusingtheflotaire"]
     },
     {
       "id": "program",
@@ -111,19 +111,19 @@
       "id": "author-resume",
       "template_page": 17,
       "reference_page": 20,
-      "phrases": ["作者简历", "一、教育经历", "三、研究项目"]
+      "phrases": ["一、基本情况", "二、学术论文", "四、研究项目"]
     },
     {
       "id": "originality",
       "template_page": 18,
       "reference_page": 21,
-      "phrases": ["学位论文原创性声明", "本人郑重声明：所呈交的学位论文", "法律后果由本人承担"]
+      "phrases": ["本人郑重声明：所呈交的学位论文", "学位论文作者签字", "签名需手写"]
     },
     {
       "id": "dataset",
       "template_page": 19,
       "reference_page": 22,
-      "phrases": ["学位论文数据集", "学位授予单位名称", "StudyontheCyclonicSeparationMechanismofFlotation"]
+      "phrases": ["关键词*", "学位授予单位名称*", "论文总页数*"]
     }
   ]
 }

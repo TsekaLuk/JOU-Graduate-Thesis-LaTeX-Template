@@ -1,0 +1,22 @@
+LaTeX Project Public License
+Version 1.3c
+
+Copyright (c) 2026 Jiangsu Ocean University Graduate Thesis Template Contributors
+
+This work may be distributed and/or modified under the conditions of the
+LaTeX Project Public License, either version 1.3c of this license or
+(at your option) any later version. The latest version of this license is in:
+
+  https://www.latex-project.org/lppl.txt
+
+and version 1.3c or later is part of all distributions of LaTeX
+version 2008 or later.
+
+This work has the LPPL maintenance status "maintained".
+
+This work consists of the project source, style files, tests, documentation,
+and bundled open-source fonts in this repository, excluding any third-party
+proprietary fonts that users place under `fonts/proprietary/` for local use.
+
+Third-party proprietary fonts are not covered by this license. Their use and
+redistribution remain subject to the original font vendors' license terms.

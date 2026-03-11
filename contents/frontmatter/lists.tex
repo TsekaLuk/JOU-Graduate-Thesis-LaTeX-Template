@@ -3,24 +3,24 @@
 \phantomsection
 \label{page:lists}
 \addcontentsline{toc}{chapter}{图清单}
-\addcontentsline{toc}{chapter}{表清单}
+\JOUWriteEnglishTocRegular{List of Figures}
 
 \JOUFrontmatterTitle{图清单}
+\makeatletter
+\begingroup
+\let\addvspace\@gobble
+\@starttoc{lof}
+\endgroup
+\makeatother
 
-{\zihao{5}\songti
-\begin{tabular*}{\textwidth}{@{}p{2.5cm}p{9.0cm}@{\extracolsep{\fill}}r@{}}
-图 1-1 & 循环矿浆压力与柱体背压的关系 & \pageref{fig:pressure} \\
-Figure 1-1 & Relationship between the pressure of circulating pulp and the back pressure & \pageref{fig:pressure} \\
-\end{tabular*}
-}
+\vspace{1.4\baselineskip}
 
-\vspace{6.9cm}
-
+\addcontentsline{toc}{chapter}{表清单}
+\JOUWriteEnglishTocRegular{List of Tables}
 \JOUFrontmatterTitle{表清单}
-
-{\zihao{5}\songti
-\begin{tabular*}{\textwidth}{@{}p{2.5cm}p{9.0cm}@{\extracolsep{\fill}}r@{}}
-表 1-1 & 筛分粒度组成 & \pageref{tab:sieve} \\
-Table 1-1 & Particle size distribution results & \pageref{tab:sieve} \\
-\end{tabular*}
-}
+\makeatletter
+\begingroup
+\let\addvspace\@gobble
+\@starttoc{lot}
+\endgroup
+\makeatother

@@ -21,6 +21,7 @@ __pycache__/
 *.snm
 *.synctex.gz
 *.toc
+*.toe
 *.vrb
 *.xdv
 !references/*.pdf
