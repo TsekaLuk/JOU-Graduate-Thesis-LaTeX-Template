@@ -66,6 +66,19 @@
 - `latexmk -xelatex main.tex`
 - `pytest -q`
 
+## QA
+
+### 为什么仓库不直接附带宋体、黑体、楷体、方正小标宋这些字体？
+
+因为这类字体大多属于系统字体、Office 字体或商业字体，公共仓库不适合直接再分发。
+
+模板已经提供了两层方案：
+
+- 本地正式字体：把你合法拥有的字体放进 `fonts/proprietary/`
+- 一键导入：直接运行 `make import-fonts`，脚本会从 Windows 字体目录、macOS 字体目录、WPS 安装目录和桌面字体目录自动复制并规范命名
+
+如果机器上没有这些正式字体，模板仍然会回退到仓库内置的开源字体，保证能编译、能预览、能继续写论文。
+
 ## 开源许可
 
 项目代码采用 [LaTeX Project Public License v1.3c](https://www.latex-project.org/lppl.txt)。
