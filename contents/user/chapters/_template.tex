@@ -1,0 +1,17 @@
+% 推荐优先使用：
+% make new-chapter NAME=08-literature-review TITLE_CN=文献综述 TITLE_EN="Literature Review"
+%
+% 如果你确实需要手工复制本文件：
+% 1. 重命名为 02-xxx.tex、03-xxx.tex 之类的章节文件
+% 2. 再到 contents/chapters/mainmatter.tex 里增加对应的 \input{...}
+
+\JOUChapterWithEnglish{中文章节标题}{English Chapter Title}
+\label{chap:your-chapter}
+
+\JOUSectionWithEnglish{中文小节标题}{English Section Title}
+
+这里写本节正文。正常段落直接书写即可，不要靠手工空格或大量 `\\` 撑版。
+
+\subsection{三级标题}
+
+这里写更细的论述内容。引用请使用 `\cite{}` 或 `\upcite{}`，图表请使用正常的 `table` 和 `figure` 环境。

@@ -1,0 +1,74 @@
+\JOUChapterWithEnglish{绪论}{Introduction}
+\phantomsection
+\label{page:body-first}
+\label{chap:intro}
+
+\JOUSectionWithEnglish{概述（Introduction）}{Introduction}
+
+旋流-静态微泡浮选柱因结构简单、分选效率高且适应性强，已经逐渐被矿物加工领域接受并应用。尤其在煤炭分选场景中，旋流场与微泡耦合作用能够显著强化细粒级颗粒的界面行为，从而提升分选效果\upcite{peng1998}。
+
+\vspace{0.5\baselineskip}
+
+与传统浮选设备相比，该类装置同时具备较强的流场调控能力和较好的工程放大潜力，但在循环矿浆量、给矿量和柱体背压等关键参数变化时，设备内部流场结构与颗粒迁移路径仍存在较大的不确定性。因此，对旋流分选机理进行系统分析具有明确的理论意义和工程价值。
+
+\subsection{研究目标}
+
+描述旋流－静态微泡浮选柱的旋流场结构，分析旋流场特征及其影响；借助流体力学软件对柱体的内部流场进行模拟并分析其流场速度分布规律，研究循环矿浆量及给矿量等因素对流场的影响；通过对旋流场内的颗粒受力分析，建立基于旋流的颗粒动力学方程；系统揭示旋流分选作用，并进行相关动力学分析。
+
+\clearpage
+\phantomsection
+\label{page:body-second}
+
+\subsection{研究方法}
+
+\noindent 流场模拟及分选机理研究。
+
+\begin{table}[H]
+    \centering
+    \JOUTableBicaption{筛分粒度组成}{Particle size distribution results}
+    \label{tab:sieve}
+    \renewcommand{\arraystretch}{1.16}
+    \begin{tabular}{C{2.20cm}C{1.80cm}C{1.80cm}C{2.20cm}C{2.20cm}}
+        \toprule
+        粒级，mm & 产率，％ & 灰分，％ & 累计产率，％ & 累计灰分，％ \\
+        \midrule
+        ＞0.5 & 3.80 & 7.38 & 3.80 & 7.38 \\
+        0.5～0.25 & 4.55 & 4.56 & 8.35 & 5.84 \\
+        0.25～0.125 & 3.32 & 5.47 & 11.67 & 5.74 \\
+        0.125～0.074 & 4.74 & 3.63 & 16.41 & 5.13 \\
+        0.074～0.045 & 10.72 & 3.11 & 27.13 & 4.33 \\
+        ＜0.045 & 72.87 & 4.64 & 100.00 & 4.56 \\
+        合计 & 100.00 & 4.56 & － & － \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\vspace{0.8\baselineskip}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=8.6cm,
+            height=5.5cm,
+            xmin=500, xmax=1400,
+            ymin=0.03, ymax=0.14,
+            xtick={500,600,700,800,900,1000,1100,1200,1300,1400},
+            ytick={0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.10,0.11,0.12,0.13,0.14},
+            tick label style={font=\rmfamily\fontsize{7pt}{8pt}\selectfont},
+            label style={font=\songti\fontsize{9pt}{11pt}\selectfont},
+            legend style={font=\songti\fontsize{8pt}{9pt}\selectfont, draw=none, fill=none, at={(0.06,0.98)}, anchor=north west},
+            legend cell align=left,
+            axis lines=left,
+            xlabel={循环泵转数 r / min},
+            ylabel={循环矿浆压力 / MPa},
+        ]
+            \addplot+[black, mark=square*, mark size=1.6pt, line width=0.55pt] coordinates {(600,0.040) (800,0.055) (1000,0.070) (1100,0.089) (1250,0.102) (1350,0.108)};
+            \addplot+[black, mark=*, mark size=1.7pt, line width=0.55pt] coordinates {(600,0.042) (800,0.055) (1000,0.073) (1100,0.092) (1250,0.108) (1350,0.115)};
+            \addplot+[black, mark=triangle*, mark size=2.0pt, line width=0.55pt] coordinates {(600,0.043) (800,0.055) (1000,0.075) (1100,0.094) (1250,0.110) (1350,0.134)};
+            \legend{背压为0.37m水柱,背压为0.90m水柱,背压为1.50m水柱}
+        \end{axis}
+    \end{tikzpicture}
+    \JOUFigureBicaption{循环矿浆压力与柱体背压的关系}{Relationship between the pressure of circulating pulp and the back pressure}
+    \label{fig:pressure}
+\end{figure}

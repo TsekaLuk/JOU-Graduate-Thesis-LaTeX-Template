@@ -11,9 +11,21 @@
 \renewcommand{\arraystretch}{1.28}
 \newcommand{\JOUDataHead}[1]{{\JOUHeadingHei\bfseries\zihao{5}#1}}
 \newcommand{\JOUDataCell}[1]{{\songti\zihao{5}#1}}
+\newcommand{\JOUDataFormatChoice}[1]{#1（\hspace{0.7em}）}
+\newcommand{\JOUDataFormatChecklist}{%
+    \begin{tabular*}{15.95cm}{@{\extracolsep{\fill}}lccccc@{}}%
+    电子版论文提交格式 & \JOUDataFormatChoice{文本} & \JOUDataFormatChoice{图像} & \JOUDataFormatChoice{视频} & \JOUDataFormatChoice{音频} & \JOUDataFormatChoice{多媒体} \\
+    & \multicolumn{5}{l@{}}{\JOUDataFormatChoice{其他}}%
+    \end{tabular*}%
+}
 
-\begin{textblock*}{16.35cm}(2.05cm,2.62cm)
+    \begin{textblock*}{21cm}(0cm,1.35cm)
+    \centering{\JOUHeadingHei\bfseries\zihao{-2}\JOUDataCollectionStartTitle\par}
+    \end{textblock*}
+
+    \begin{textblock*}{17.25cm}(1.48cm,2.62cm)
 {\songti\zihao{5}
+\centering
 \begin{tabular}{|C{3.90cm}|C{2.95cm}|C{3.10cm}|C{2.75cm}|C{3.65cm}|}
 \hline
 \JOUDataHead{关键词*} & \JOUDataHead{密级*} & \JOUDataHead{中图分类号*} & \JOUDataHead{UDC} & \JOUDataHead{论文资助} \\
@@ -26,15 +38,15 @@
 \hline
 \multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{论文题名*}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{并列题名*}} & \JOUDataHead{论文语种*} \\
 \hline
-\multicolumn{2}{|L{6.85cm}|}{\JOUDataCell{\JOUChineseTitle}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\JOUEnglishTitle}} & \JOUDataCell{\JOUThesisLanguage} \\
+\multicolumn{2}{|L{6.85cm}|}{\JOUDataCell{\JOUChineseTitle}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\parbox[t]{5.45cm}{\centering \JOUEnglishTitle}}} & \JOUDataCell{\JOUThesisLanguage} \\
 \hline
 \multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{作者姓名*}} & \multicolumn{3}{C{9.50cm}|}{\JOUDataHead{学号*}} \\
 \hline
-\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUAuthorName}} & \multicolumn{3}{C{9.50cm}|}{\JOUDataCell{\JOUStudentId}} \\
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUAuthorDisplay}} & \multicolumn{3}{C{9.50cm}|}{\JOUDataCell{\JOUStudentIdDisplay}} \\
 \hline
 \JOUDataHead{培养单位名称*} & \JOUDataHead{培养单位代码*} & \JOUDataHead{培养单位地址} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{邮编}} \\
 \hline
-\JOUDataCell{\JOUTrainingUnitName} & \JOUDataCell{\JOUTrainingUnitCode} & \JOUDataCell{\JOUTrainingUnitAddress} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{\JOUPostalCode}} \\
+\JOUDataCell{\JOUTrainingUnitNameDisplay} & \JOUDataCell{\JOUTrainingUnitCodeDisplay} & \JOUDataCell{\JOUTrainingUnitAddressDisplay} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{\JOUPostalCodeDisplay}} \\
 \hline
 \JOUDataHead{学科专业*} & \JOUDataHead{研究方向*} & \JOUDataHead{学制*} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{学位授予年*}} \\
 \hline
@@ -46,15 +58,15 @@
 \hline
 \multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{导师姓名*}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{职称*}} & \JOUDataCell{} \\
 \hline
-\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUSupervisorName}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\JOUSupervisorTitle}} & \JOUDataCell{} \\
+\multicolumn{2}{|C{6.85cm}|}{\JOUDataCell{\JOUSupervisorNameDisplay}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataCell{\ifJOUBlindReview 隐去\else \JOUSupervisorTitle\fi}} & \JOUDataCell{} \\
 \hline
 \JOUDataHead{评阅人} & \multicolumn{2}{C{6.05cm}|}{\JOUDataHead{答辩委员会主席*}} & \multicolumn{2}{C{6.40cm}|}{\JOUDataHead{答辩委员会成员}} \\
 \hline
-\JOUDataCell{\JOUReviewers} & \multicolumn{2}{C{6.05cm}|}{\JOUDataCell{\JOUDefenseChair}} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{}} \\
+\JOUDataCell{\JOUReviewersDisplay} & \multicolumn{2}{C{6.05cm}|}{\JOUDataCell{\JOUDefenseChairDisplay}} & \multicolumn{2}{C{6.40cm}|}{\JOUDataCell{}} \\
 \hline
-\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\parbox[t]{16.05cm}{电子版论文提交格式\hspace{1em}文本（\hspace{0.7em}）\hspace{0.8em}图像（\hspace{0.7em}）\hspace{0.8em}视频（\hspace{0.7em}）\hspace{0.8em}音频（\hspace{0.7em}）\hspace{0.8em}多媒体（\hspace{0.7em}）\\\hspace*{8.7em}其他（\hspace{0.7em}）}}} \\
+\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\JOUDataFormatChecklist}} \\
 \hline
-\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\JOUDataCollectionFormatLine}} \\
+\multicolumn{5}{|L{16.35cm}|}{\JOUDataCell{\parbox[t]{15.95cm}{\raggedright \JOUDataCollectionFormatLine}}} \\
 \hline
 \multicolumn{2}{|C{6.85cm}|}{\JOUDataHead{电子版论文出版（发布）者}} & \multicolumn{2}{C{5.85cm}|}{\JOUDataHead{电子版论文出版（发布）地}} & \JOUDataHead{权限声明} \\
 \hline

@@ -1,6 +1,6 @@
 \documentclass{styles/jougraduate}
 
-\input{contents/shared/metadata}
+\input{contents/setup}
 \input{contents/shared/thesis-content}
 \JOUApplySharedMetadata
 
@@ -10,7 +10,12 @@
 \input{contents/frontmatter/authorization}
 \input{contents/frontmatter/inner-cover}
 \input{contents/frontmatter/review}
-\input{contents/frontmatter/acknowledgements}
+\ifJOUBlindReview
+\else
+\ifJOUIncludeAcknowledgements
+    \input{contents/frontmatter/acknowledgements}
+\fi
+\fi
 
 \frontmatter
 \setcounter{page}{1}
@@ -27,13 +32,26 @@
 \mainmatter
 \setcounter{page}{1}
 
-\input{contents/chapters/chapter1}
-\input{contents/chapters/chapter1-sample}
+\input{contents/chapters/mainmatter}
 \input{contents/backmatter/conclusion}
 \input{contents/backmatter/references}
-\input{contents/appendices/program}
-\input{contents/backmatter/author-resume}
-\input{contents/backmatter/originality}
-\input{contents/backmatter/dataset}
+\ifJOUIncludeAppendix
+    \input{contents/appendices/program}
+\fi
+\ifJOUBlindReview
+\else
+\ifJOUIncludeAuthorResume
+    \input{contents/backmatter/author-resume}
+\fi
+\fi
+\ifJOUBlindReview
+\else
+\ifJOUIncludeOriginality
+    \input{contents/backmatter/originality}
+\fi
+\fi
+\ifJOUIncludeDataset
+    \input{contents/backmatter/dataset}
+\fi
 
 \end{document}

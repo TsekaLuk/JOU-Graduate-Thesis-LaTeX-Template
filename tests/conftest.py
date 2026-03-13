@@ -16,6 +16,7 @@ from PIL import Image
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MAIN_PDF = PROJECT_ROOT / "main.pdf"
+BODY_SAMPLE_PDF = PROJECT_ROOT / "body-sample.pdf"
 MAIN_FILE = PROJECT_ROOT / "main.tex"
 CLASS_FILE = PROJECT_ROOT / "styles" / "jougraduate.cls"
 HEADINGS_FILE = PROJECT_ROOT / "styles" / "jougraduateheadings.sty"
@@ -27,6 +28,16 @@ REFERENCE_PDF = PROJECT_ROOT / "references" / "江苏海洋大学研究生硕士
 REFERENCE_XML = PROJECT_ROOT / "references" / "unpacked" / "word" / "document.xml"
 SPEC_PATH = PROJECT_ROOT / "tests" / "graduate_reference_spec.json"
 CHECK_FONTS_SCRIPT = PROJECT_ROOT / "scripts" / "check_fonts.py"
+CHECK_ENVIRONMENT_SCRIPT = PROJECT_ROOT / "scripts" / "check_environment.py"
+IMPORT_FONTS_SCRIPT = PROJECT_ROOT / "scripts" / "import_fonts.py"
+NEW_CHAPTER_SCRIPT = PROJECT_ROOT / "scripts" / "new_chapter.py"
+PACKAGE_SCRIPT = PROJECT_ROOT / "scripts" / "package_for_distribution.sh"
+GENERATE_COVER_DIFF_SCRIPT = PROJECT_ROOT / "scripts" / "generate_cover_diff.py"
+GENERATE_README_IMAGES_SCRIPT = PROJECT_ROOT / "scripts" / "generate_readme_images.py"
+README_FILE = PROJECT_ROOT / "README.md"
+USAGE_GUIDE = PROJECT_ROOT / "docs" / "guides" / "usage.md"
+README_IMAGE_DIR = PROJECT_ROOT / "docs" / "images"
+README_ASSET_DIR = PROJECT_ROOT / "docs" / "assets"
 WORKFLOW_FILE = PROJECT_ROOT / ".github" / "workflows" / "cross-platform-fonts.yml"
 FONTPATHS_EXAMPLE = PROJECT_ROOT / "styles" / "joufontspaths.local.example.tex"
 

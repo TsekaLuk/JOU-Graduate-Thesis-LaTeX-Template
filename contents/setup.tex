@@ -1,0 +1,56 @@
+% 研究生论文模板的集中配置入口。
+% 正常写作时，优先修改本文件，而不是直接改类文件或锁版页。
+% 注意：带空格、逗号或特殊符号的值请用花括号包起来。
+%
+% 建议按下面顺序修改：
+% 1. 先改“首次使用必改字段”
+% 2. 再改页面开关和盲审模式
+% 3. 低频字段最后按需补充
+%
+% 如果你只是想尽快开始写论文，优先完成：
+% title-cn / title-en / author / supervisor-name / college / program /
+% research-direction / degree / cover-date
+
+\JOUSetup{
+    % ---- 第 1 步：首次使用必改字段 ----
+    title-cn = {浮选旋流分选机理研究},
+    title-en = {Study on the Cyclonic Separation Mechanism of Flotation},
+    author = {***},
+    supervisor-name = {***},
+    supervisor-title = {教授},
+    college = {化工学院},
+    program = {矿物加工工程},
+    research-direction = {洁净能源},
+    degree = {工学硕士},
+    cover-date = {二零二六年六月},
+    % ---- 第 2 步：常用补充字段 ----
+    student-id = {2023123456},
+    degree-category = {学术学位},
+    degree-level = {硕士},
+    classification-number = {TD94},
+    udc = {622.7},
+    confidentiality = {公开},
+    university-code = {11641},
+    awarding-institution = {江苏海洋大学},
+    awarding-institution-code = {11641},
+    training-unit-name = {江苏海洋大学},
+    training-unit-code = {11641},
+    training-unit-address = {江苏省连云港市},
+    postal-code = {222005},
+    thesis-language = {中文},
+    submission-date = {2026年6月},
+    award-year = {2026},
+    % ---- 第 3 步：低频字段，通常按学院要求再改 ----
+    defense-chair = {待定},
+    reviewers = {待定},
+    program-duration = {3年},
+    grant-info = {无},
+    % ---- 第 4 步：页面开关 ----
+    include-acknowledgements = true,
+    include-appendix = true,
+    include-author-resume = true,
+    include-originality = true,
+    include-dataset = true,
+    % ---- 第 5 步：匿名评审 ----
+    blind-review = false
+}

@@ -1,0 +1,60 @@
+\JOUChapterWithEnglish{浮选柱的旋流场结构}{Structure of Cyclonic Field of Column Flotation}
+\label{chap:cyclonic-field}
+
+\JOUSectionWithEnglish{浮选柱分选机理}{Separation Mechanism of Column Flotation}
+
+旋流场与微泡场的协同作用是该装置实现高效分选的关键。颗粒在柱内受到离心力、拖曳力和浮力的共同作用，其径向迁移与轴向停留时间共同决定了最终的富集效果。不同药剂制度下，颗粒表面疏水性的变化会进一步放大流场组织方式对分选结果的影响。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=8.5cm,
+            height=5.2cm,
+            xmin=4.0, xmax=10.0,
+            ymin=48, ymax=96,
+            xtick={4,5,6,7,8,9,10},
+            ytick={50,60,70,80,90},
+            tick label style={font=\rmfamily\fontsize{7pt}{8pt}\selectfont},
+            label style={font=\songti\fontsize{9pt}{11pt}\selectfont},
+            axis lines=left,
+            xlabel={pH 值},
+            ylabel={上浮率 / \%},
+        ]
+            \addplot+[black, mark=*, mark size=1.8pt, line width=0.55pt] coordinates {
+                (4.5,52) (5.5,63) (6.5,76) (7.0,88) (8.0,91) (9.0,85) (10.0,79)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \JOUFigureBicaption{pH 值对黄铜矿上浮率的影响关系曲线}{Influence of pH for chalcopyrite float ratio}
+    \label{fig:ph-chalcopyrite}
+\end{figure}
+
+\JOUSectionWithEnglish{浮选柱选流场}{Cyclonic Field of Column Flotation}
+
+在给定结构参数下，捕收剂制度不仅改变矿粒表面的可浮性，也会影响矿浆体系的黏度和气泡尺度分布，进而改变柱内循环流区与分离流区的边界位置。因此，从选流场角度分析药剂作用，有助于解释不同操作参数下的回收率变化规律。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=8.5cm,
+            height=5.2cm,
+            xmin=50, xmax=250,
+            ymin=45, ymax=94,
+            xtick={50,100,150,200,250},
+            ytick={50,60,70,80,90},
+            tick label style={font=\rmfamily\fontsize{7pt}{8pt}\selectfont},
+            label style={font=\songti\fontsize{9pt}{11pt}\selectfont},
+            axis lines=left,
+            xlabel={捕收剂用量 / g\ensuremath{\cdot}t\textsuperscript{-1}},
+            ylabel={上浮率 / \%},
+        ]
+            \addplot+[black, mark=square*, mark size=1.8pt, line width=0.55pt] coordinates {
+                (50,54) (100,68) (150,83) (180,90) (220,88) (250,84)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \JOUFigureBicaption{不同捕收剂的用量对黄铜矿上浮率的影响关系曲线}{Influence of different collector amount for chalcopyrite float ratio}
+    \label{fig:collector-chalcopyrite}
+\end{figure}

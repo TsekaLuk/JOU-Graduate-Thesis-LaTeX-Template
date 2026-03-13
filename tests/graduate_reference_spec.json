@@ -8,7 +8,7 @@
   },
   "template": {
     "pdf": "main.pdf",
-    "expected_pages": 19
+    "expected_pages": 25
   },
   "pages": [
     {
@@ -91,37 +91,37 @@
     },
     {
       "id": "conclusion",
-      "template_page": 14,
+      "template_page": 20,
       "reference_page": 17,
-      "phrases": ["8结论", "8Conclusions", "本文从自然因素、外部环境和内部结构等方面"]
+      "phrases": ["结论", "Conclusions", "旋流-静态微泡浮选过程中的流场结构"]
     },
     {
       "id": "references",
-      "template_page": 15,
+      "template_page": 21,
       "reference_page": 18,
       "phrases": ["参考文献", "新结构LHJ浮选柱的分选机理及数学模型研究", "Finecoalflotationusingtheflotaire"]
     },
     {
       "id": "program",
-      "template_page": 16,
+      "template_page": 22,
       "reference_page": 19,
       "phrases": ["煤炭供需预警程序", "ImportsSystem.Math", "PublicClassForm1"]
     },
     {
       "id": "author-resume",
-      "template_page": 17,
+      "template_page": 23,
       "reference_page": 20,
       "phrases": ["一、基本情况", "二、学术论文", "四、研究项目"]
     },
     {
       "id": "originality",
-      "template_page": 18,
+      "template_page": 24,
       "reference_page": 21,
       "phrases": ["本人郑重声明：所呈交的学位论文", "学位论文作者签字", "签名需手写"]
     },
     {
       "id": "dataset",
-      "template_page": 19,
+      "template_page": 25,
       "reference_page": 22,
       "phrases": ["关键词*", "学位授予单位名称*", "论文总页数*"]
     }

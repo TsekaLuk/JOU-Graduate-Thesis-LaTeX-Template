@@ -24,6 +24,14 @@ WPS 字体仍然支持，但只是兼容兜底，不是默认优先级。
 make import-fonts
 ```
 
+如果字体不在默认目录，或你想先看导入计划，可直接运行：
+
+```bash
+python3 scripts/import_fonts.py --search-dir /path/to/fonts
+python3 scripts/import_fonts.py --dry-run
+python3 scripts/import_fonts.py --skip-optional
+```
+
 脚本会自动尝试从这些常见位置复制并规范命名：
 
 - Windows `C:/Windows/Fonts`

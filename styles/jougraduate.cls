@@ -32,6 +32,7 @@
 \RequirePackage{listings}
 \RequirePackage{float}
 \RequirePackage{tikz}
+\RequirePackage{pgfkeys}
 \RequirePackage{pgfplots}
 \RequirePackage{xcolor}
 \RequirePackage{colortbl}
@@ -46,6 +47,11 @@
 \RequirePackage{hyperref}
 \RequirePackage{bookmark}
 \RequirePackage[capitalize,nameinlink,noabbrev]{cleveref}
+
+\ifdefined\XeTeXgenerateactualtext
+    \XeTeXgenerateactualtext=1
+\fi
+\special{pdf:tounicode UTF8-UCS2}
 
 \geometry{
     a4paper,
@@ -202,6 +208,49 @@
 \def\JOUGrantInfo{无}
 \def\JOUSubmissionDate{2026年6月}
 \def\JOUAwardYear{2026}
+\newif\ifJOUIncludeAcknowledgements
+\newif\ifJOUIncludeAppendix
+\newif\ifJOUIncludeAuthorResume
+\newif\ifJOUIncludeOriginality
+\newif\ifJOUIncludeDataset
+\newif\ifJOUBlindReview
+\JOUIncludeAcknowledgementstrue
+\JOUIncludeAppendixtrue
+\JOUIncludeAuthorResumetrue
+\JOUIncludeOriginalitytrue
+\JOUIncludeDatasettrue
+\JOUBlindReviewfalse
+
+\def\JOUSharedTitleCN{\JOUChineseTitle}
+\def\JOUSharedTitleEN{\JOUEnglishTitle}
+\def\JOUSharedAuthorName{\JOUAuthorName}
+\def\JOUSharedStudentId{\JOUStudentId}
+\def\JOUSharedCollege{\JOUCollege}
+\def\JOUSharedProgram{\JOUProgram}
+\def\JOUSharedResearchDirection{\JOUResearchDirection}
+\def\JOUSharedDegree{\JOUDegree}
+\def\JOUSharedDegreeCategory{\JOUDegreeCategory}
+\def\JOUSharedDegreeLevel{\JOUDegreeLevel}
+\def\JOUSharedSupervisorName{\JOUSupervisorName}
+\def\JOUSharedSupervisorTitle{\JOUSupervisorTitle}
+\def\JOUSharedClassificationNumber{\JOUClassificationNumber}
+\def\JOUSharedUDC{\JOUUDC}
+\def\JOUSharedConfidentiality{\JOUConfidentiality}
+\def\JOUSharedUniversityCode{\JOUUniversityCode}
+\def\JOUSharedAwardingInstitution{\JOUAwardingInstitution}
+\def\JOUSharedAwardingInstitutionCode{\JOUAwardingInstitutionCode}
+\def\JOUSharedTrainingUnitName{\JOUTrainingUnitName}
+\def\JOUSharedTrainingUnitCode{\JOUTrainingUnitCode}
+\def\JOUSharedTrainingUnitAddress{\JOUTrainingUnitAddress}
+\def\JOUSharedPostalCode{\JOUPostalCode}
+\def\JOUSharedThesisLanguage{\JOUThesisLanguage}
+\def\JOUSharedDefenseChair{\JOUDefenseChair}
+\def\JOUSharedReviewers{\JOUReviewers}
+\def\JOUSharedDate{\JOUDate}
+\def\JOUSharedProgramDuration{\JOUProgramDuration}
+\def\JOUSharedGrantInfo{\JOUGrantInfo}
+\def\JOUSharedSubmissionDate{\JOUSubmissionDate}
+\def\JOUSharedAwardYear{\JOUAwardYear}
 
 \newcommand{\cnthesistitle}[1]{\gdef\JOUChineseTitle{#1}}
 \newcommand{\entitle}[1]{\gdef\JOUEnglishTitle{#1}}
@@ -233,39 +282,110 @@
 \newcommand{\grantinfo}[1]{\gdef\JOUGrantInfo{#1}}
 \newcommand{\submissiondate}[1]{\gdef\JOUSubmissionDate{#1}}
 \newcommand{\awardyear}[1]{\gdef\JOUAwardYear{#1}}
+\newcommand{\JOUAuthorDisplay}{\ifJOUBlindReview 匿名\else \JOUAuthorName\fi}
+\newcommand{\JOUSupervisorNameDisplay}{\ifJOUBlindReview 匿名\else \JOUSupervisorName\fi}
+\newcommand{\JOUSupervisorTitleDisplay}{\ifJOUBlindReview \relax\else \JOUSupervisorTitle\fi}
+\newcommand{\JOUStudentIdDisplay}{\ifJOUBlindReview 隐去\else \JOUStudentId\fi}
+\newcommand{\JOUCollegeDisplay}{\ifJOUBlindReview 隐去\else \JOUCollege\fi}
+\newcommand{\JOUTrainingUnitNameDisplay}{\ifJOUBlindReview 隐去\else \JOUTrainingUnitName\fi}
+\newcommand{\JOUTrainingUnitCodeDisplay}{\ifJOUBlindReview 隐去\else \JOUTrainingUnitCode\fi}
+\newcommand{\JOUTrainingUnitAddressDisplay}{\ifJOUBlindReview 隐去\else \JOUTrainingUnitAddress\fi}
+\newcommand{\JOUPostalCodeDisplay}{\ifJOUBlindReview 隐去\else \JOUPostalCode\fi}
+\newcommand{\JOUReviewersDisplay}{\ifJOUBlindReview 隐去\else \JOUReviewers\fi}
+\newcommand{\JOUDefenseChairDisplay}{\ifJOUBlindReview 隐去\else \JOUDefenseChair\fi}
 
-\newcommand{\JOUApplySharedMetadata}{%
-    \cnthesistitle{\JOUSharedTitleCN}%
-    \entitle{\JOUSharedTitleEN}%
-    \graduateauthor{\JOUSharedAuthorName}%
-    \studentid{\JOUSharedStudentId}%
-    \college{\JOUSharedCollege}%
-    \program{\JOUSharedProgram}%
-    \researchdirection{\JOUSharedResearchDirection}%
-    \degree{\JOUSharedDegree}%
-    \degreecategory{\JOUSharedDegreeCategory}%
-    \degreelevel{\JOUSharedDegreeLevel}%
-    \supervisor{\JOUSharedSupervisorName}%
-    \supervisortitle{\JOUSharedSupervisorTitle}%
-    \classificationnumber{\JOUSharedClassificationNumber}%
-    \udc{\JOUSharedUDC}%
-    \confidentiality{\JOUSharedConfidentiality}%
-    \universitycode{\JOUSharedUniversityCode}%
-    \awardinginstitution{\JOUSharedAwardingInstitution}%
-    \awardinginstitutioncode{\JOUSharedAwardingInstitutionCode}%
-    \trainingunitname{\JOUSharedTrainingUnitName}%
-    \trainingunitcode{\JOUSharedTrainingUnitCode}%
-    \trainingunitaddress{\JOUSharedTrainingUnitAddress}%
-    \postalcode{\JOUSharedPostalCode}%
-    \thesislanguage{\JOUSharedThesisLanguage}%
-    \defensechair{\JOUSharedDefenseChair}%
-    \reviewers{\JOUSharedReviewers}%
-    \coverdate{\JOUSharedDate}%
-    \programduration{\JOUSharedProgramDuration}%
-    \grantinfo{\JOUSharedGrantInfo}%
-    \submissiondate{\JOUSharedSubmissionDate}%
-    \awardyear{\JOUSharedAwardYear}%
+\newcommand{\JOU@syncsharedmetadata}{%
+    \gdef\JOUSharedTitleCN{\JOUChineseTitle}%
+    \gdef\JOUSharedTitleEN{\JOUEnglishTitle}%
+    \gdef\JOUSharedAuthorName{\JOUAuthorName}%
+    \gdef\JOUSharedStudentId{\JOUStudentId}%
+    \gdef\JOUSharedCollege{\JOUCollege}%
+    \gdef\JOUSharedProgram{\JOUProgram}%
+    \gdef\JOUSharedResearchDirection{\JOUResearchDirection}%
+    \gdef\JOUSharedDegree{\JOUDegree}%
+    \gdef\JOUSharedDegreeCategory{\JOUDegreeCategory}%
+    \gdef\JOUSharedDegreeLevel{\JOUDegreeLevel}%
+    \gdef\JOUSharedSupervisorName{\JOUSupervisorName}%
+    \gdef\JOUSharedSupervisorTitle{\JOUSupervisorTitle}%
+    \gdef\JOUSharedClassificationNumber{\JOUClassificationNumber}%
+    \gdef\JOUSharedUDC{\JOUUDC}%
+    \gdef\JOUSharedConfidentiality{\JOUConfidentiality}%
+    \gdef\JOUSharedUniversityCode{\JOUUniversityCode}%
+    \gdef\JOUSharedAwardingInstitution{\JOUAwardingInstitution}%
+    \gdef\JOUSharedAwardingInstitutionCode{\JOUAwardingInstitutionCode}%
+    \gdef\JOUSharedTrainingUnitName{\JOUTrainingUnitName}%
+    \gdef\JOUSharedTrainingUnitCode{\JOUTrainingUnitCode}%
+    \gdef\JOUSharedTrainingUnitAddress{\JOUTrainingUnitAddress}%
+    \gdef\JOUSharedPostalCode{\JOUPostalCode}%
+    \gdef\JOUSharedThesisLanguage{\JOUThesisLanguage}%
+    \gdef\JOUSharedDefenseChair{\JOUDefenseChair}%
+    \gdef\JOUSharedReviewers{\JOUReviewers}%
+    \gdef\JOUSharedDate{\JOUDate}%
+    \gdef\JOUSharedProgramDuration{\JOUProgramDuration}%
+    \gdef\JOUSharedGrantInfo{\JOUGrantInfo}%
+    \gdef\JOUSharedSubmissionDate{\JOUSubmissionDate}%
+    \gdef\JOUSharedAwardYear{\JOUAwardYear}%
 }
+
+\pgfkeys{
+    /jou/setup/.is family,
+    /jou/setup,
+    title-cn/.code=\cnthesistitle{#1},
+    title-en/.code=\entitle{#1},
+    author/.code=\graduateauthor{#1},
+    student-id/.code=\studentid{#1},
+    college/.code=\college{#1},
+    program/.code=\program{#1},
+    research-direction/.code=\researchdirection{#1},
+    degree/.code=\degree{#1},
+    degree-category/.code=\degreecategory{#1},
+    degree-level/.code=\degreelevel{#1},
+    supervisor-name/.code=\supervisor{#1},
+    supervisor-title/.code=\supervisortitle{#1},
+    classification-number/.code=\classificationnumber{#1},
+    udc/.code=\udc{#1},
+    confidentiality/.code=\confidentiality{#1},
+    university-code/.code=\universitycode{#1},
+    awarding-institution/.code=\awardinginstitution{#1},
+    awarding-institution-code/.code=\awardinginstitutioncode{#1},
+    training-unit-name/.code=\trainingunitname{#1},
+    training-unit-code/.code=\trainingunitcode{#1},
+    training-unit-address/.code=\trainingunitaddress{#1},
+    postal-code/.code=\postalcode{#1},
+    thesis-language/.code=\thesislanguage{#1},
+    defense-chair/.code=\defensechair{#1},
+    reviewers/.code=\reviewers{#1},
+    cover-date/.code=\coverdate{#1},
+    program-duration/.code=\programduration{#1},
+    grant-info/.code=\grantinfo{#1},
+    submission-date/.code=\submissiondate{#1},
+    award-year/.code=\awardyear{#1},
+    include-acknowledgements/.is choice,
+    include-acknowledgements/true/.code=\JOUIncludeAcknowledgementstrue,
+    include-acknowledgements/false/.code=\JOUIncludeAcknowledgementsfalse,
+    include-appendix/.is choice,
+    include-appendix/true/.code=\JOUIncludeAppendixtrue,
+    include-appendix/false/.code=\JOUIncludeAppendixfalse,
+    include-author-resume/.is choice,
+    include-author-resume/true/.code=\JOUIncludeAuthorResumetrue,
+    include-author-resume/false/.code=\JOUIncludeAuthorResumefalse,
+    include-originality/.is choice,
+    include-originality/true/.code=\JOUIncludeOriginalitytrue,
+    include-originality/false/.code=\JOUIncludeOriginalityfalse,
+    include-dataset/.is choice,
+    include-dataset/true/.code=\JOUIncludeDatasettrue,
+    include-dataset/false/.code=\JOUIncludeDatasetfalse,
+    blind-review/.is choice,
+    blind-review/true/.code=\JOUBlindReviewtrue,
+    blind-review/false/.code=\JOUBlindReviewfalse,
+}
+
+\newcommand{\JOUSetup}[1]{%
+    \pgfkeys{/jou/setup,.cd,#1}%
+    \JOU@syncsharedmetadata
+}
+
+\newcommand{\JOUApplySharedMetadata}{\JOU@syncsharedmetadata}
 
 \newcommand{\JOUFrontmatterTitle}[1]{%
     {\centering\JOUHeadingHei\bfseries\zihao{-2}#1\par}%
@@ -274,6 +394,12 @@
 \newcommand{\JOUFrontmatterEnglishTitle}[1]{%
     {\centering\rmfamily\bfseries\fontsize{18pt}{22pt}\selectfont #1\par}%
     \vspace{0.6\baselineskip}%
+}
+\newcommand{\JOUStackedCenteredBlock}[3]{%
+    \centering
+    #1\par
+    \vspace{#3}%
+    #2\par
 }
 \newcommand{\JOUChapterEnglishLine}[1]{%
     {\par\noindent\raggedright\rmfamily\bfseries\zihao{-2}#1\par}%
@@ -298,10 +424,10 @@
 
 \makeatletter
 \newcommand{\l@entocmajor}[2]{%
-    \par\noindent{\rmfamily\bfseries\fontsize{12pt}{20pt}\selectfont #1\leaders\hbox to 0.55em{\hss.\hss}\hfill #2\par}%
+    \par\noindent{\rmfamily\bfseries\fontsize{10.5pt}{16pt}\selectfont #1\leaders\hbox to 0.55em{\hss.\hss}\hfill #2\par}%
 }
 \newcommand{\l@entocregular}[2]{%
-    \par\noindent\hspace*{2em}{\rmfamily\fontsize{12pt}{20pt}\selectfont #1\leaders\hbox to 0.55em{\hss.\hss}\hfill #2\par}%
+    \par\noindent\hspace*{1.5em}{\rmfamily\fontsize{10.5pt}{16pt}\selectfont #1\leaders\hbox to 0.55em{\hss.\hss}\hfill #2\par}%
 }
 \newcommand{\JOUENContentsMajorEntry}[2]{\l@entocmajor{#1}{#2}}
 \newcommand{\JOUENContentsRegularEntry}[2]{\l@entocregular{#1}{#2}}
